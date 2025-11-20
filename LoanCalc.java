@@ -70,7 +70,9 @@ public class LoanCalc {
 		int stepCounter = 0;
    		
 		while (endBalance(loan, rate, n, h) > 0) {
-        h *= 2; }
+        h *= 2; 
+//stam
+	}
 		
 		while ((h - l) > epsilon) {
         double fl = endBalance(loan, rate, n, l);
