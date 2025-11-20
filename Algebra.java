@@ -50,9 +50,11 @@ public class Algebra {
 		// Replace the following statement with your code
 		int a = x;
          if (y == 0)
-		{return 0;}
+		{return x;}
 		if (y < 0)
-		{y= -y;}
+		{y= -y;
+		return plus(x,y);
+		}
         for (int i = y ; i > 0 ;i--)
         {
             a--;
@@ -127,20 +129,24 @@ public class Algebra {
 	// Returns the integer part of sqrt(x) 
 	public static int sqrt(int x) {
 		// Replace the following statement with your code
-		int sq = -1;
+		int max =0;
 		if (x<0)
 		{return -1;}
 		if (x==0)
 		{return 0;}
 		if (x==1)
 		{return 1;}
-		for(int i=1; i<x ;i++)
-		{
-			if (mod(x,i)== 0 && (times(i, i)==x))
-			{
-				return i;
-			}
-		}
-		return sq;
+	 for (int i = 1; i <= x; i++) {
+        int sq = times(i, i); 
+
+        if (sq == x) {
+            return i;          
+        } else if (sq < x) {
+            max = i;           
+        } else {             
+            break;          
+        }
+    }
+	return max;
 	}	  	  
 }

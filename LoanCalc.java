@@ -30,7 +30,7 @@ public class LoanCalc {
 	private static double endBalance(double loan, double rate, int n, double payment) {	
 		// Replace the following statement with your code
 		double loan1 = loan;
-		for(int i =0 ; i<=n;i++)
+		for(int i =0 ; i<n;i++)
 		{
 			loan1= (loan1 -payment)*(1+ (rate/100));
 		}
@@ -45,13 +45,14 @@ public class LoanCalc {
     public static double bruteForceSolver(double loan, double rate, int n, double epsilon) {
 		// Replace the following statement with your code
 		double loan1 =loan/n;
-		int count =0;
+		int iterationCounter =0;
 		int maxtry = 100000;
+		iterationCounter = 0;
 
-		while(endBalance(loan,rate,n,loan1)>=0&& count<maxtry)
+		while(endBalance(loan,rate,n,loan1)>=0&& iterationCounter<maxtry)
 		{
 			loan1 = loan1+epsilon;
-			count++;
+			iterationCounter++;
 		};
 		return loan1;
     }
@@ -66,9 +67,8 @@ public class LoanCalc {
 		
 		double h = loan;
 		double l = 0;
-		double g=0;
-		int stepCounter = 0;
-   		
+		double g=0;   		
+		iterationCounter = 0;
 		while (endBalance(loan, rate, n, h) > 0) {
         h *= 2; 
 //stam
@@ -77,7 +77,7 @@ public class LoanCalc {
 		while ((h - l) > epsilon) {
         double fl = endBalance(loan, rate, n, l);
         double fg = endBalance(loan, rate, n, g);
-        stepCounter++;
+        iterationCounter++;
         if (fg * fl > 0) {
             l = g;
         } else {
