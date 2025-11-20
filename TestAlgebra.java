@@ -7,6 +7,7 @@ public class TestAlgebra {
     private static int passedTests = 0;
 
     public static void main(String[] args) {
+
         testPlus();
         testMinus();
         testTimes();
